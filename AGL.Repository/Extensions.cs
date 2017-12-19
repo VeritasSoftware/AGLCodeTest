@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.IO;
-using System.Runtime.Serialization.Json;
 
 namespace AGL.Repository
 {
@@ -14,17 +12,7 @@ namespace AGL.Repository
         /// <returns><see cref="T[]"/></returns>
         public static T[] DeserializeArray<T>(this string data)
         {
-            //JavaScriptSerializer ser = new JavaScriptSerializer(typeof(T[]));
-
-            return JsonConvert.DeserializeObject<T[]>(data);
-
-            //MemoryStream stream = new MemoryStream();
-            //StreamWriter writer = new StreamWriter(stream);
-            //writer.Write(data);
-            //writer.Flush();
-            //stream.Position = 0;
-
-            //return (T[])ser.ReadObject(stream);
+            return JsonConvert.DeserializeObject<T[]>(data);            
         }
     }
 }

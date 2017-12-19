@@ -6,8 +6,6 @@ namespace AGL.Application
 {
     public interface IPetsManager : IDisposable
     {
-        string Url { get; set; }
-
         Task<PetsByPersonGenderCollection> GetPetsByPersonGender(PetType petType);
     }
 }

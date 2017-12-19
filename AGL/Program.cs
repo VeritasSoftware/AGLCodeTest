@@ -13,6 +13,7 @@ namespace AGL
         {
             try
             {
+                //Create Autofac DI/IoC container
                 var containerBuilder = new ContainerBuilder();
 
                 containerBuilder.RegisterType<PetsRepository>().As<IPetsRepository>().WithProperty("Url", Properties.Settings.Default.ServiceUrl);
@@ -20,11 +21,13 @@ namespace AGL
 
                 var container = containerBuilder.Build();                
 
+                //Call API
                 using (IPetsManager petsManager = container.Resolve<IPetsManager>())
                 {                    
-                    //get cats by person gender
+                    //Get cats by person gender
                     var catsByPersonGenderCollection = petsManager.GetPetsByPersonGender(PetType.Cat);
 
+                    //Display results
                     DisplayCatsByPersonGender(catsByPersonGenderCollection.Result);
                 }
             }
@@ -33,7 +36,6 @@ namespace AGL
                 Console.WriteLine("Error occured! " + ex.Message);
             }
 
-            //Console.WriteLine("Please wait for results...");
             Console.WriteLine("Hit ENTER to exit...");
             Console.ReadLine();
         }
@@ -41,9 +43,14 @@ namespace AGL
         /// <summary>
         /// Display Cats by Person's gender
         /// </summary>
-        /// <param name="petsByPersonGenderCollection">Cats by Owners gender list</param>
+        /// <param name="petsByPersonGenderCollection">Cats by Person Gender list</param>
         static void DisplayCatsByPersonGender(PetsByPersonGenderCollection petsByPersonGenderCollection)
         {
+            if (petsByPersonGenderCollection == null)
+            {
+                throw new Exception("Error fetching data..");
+            }
+
             var catsByOwnerGender = petsByPersonGenderCollection.PetsByPersonGender;
 
             //Write output

@@ -8,15 +8,7 @@ namespace AGL.Application
 {
     public class PetsManager : IPetsManager
     {
-        private readonly Person[] _persons;
-        private readonly IPetsRepository _petsRepository;
-
-        public string Url { get; set; }
-
-        //public PetsManager(Person[] persons)
-        //{
-        //    _persons = persons ?? throw new ArgumentNullException(nameof(persons));
-        //}
+        private readonly IPetsRepository _petsRepository;        
 
         public PetsManager(IPetsRepository petsRepository)
         {
@@ -31,23 +23,28 @@ namespace AGL.Application
         /// Get Pets by Person's gender
         /// </summary>
         /// <param name="petType">The Pet type</param>
-        /// <remarks>Throws ArgumentNullException</remarks>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns><see cref="Task{PetsByPersonGenderCollection}"/></returns>
         public async Task<PetsByPersonGenderCollection> GetPetsByPersonGender(PetType petType)
         {
             var persons = await _petsRepository.GetPersonAndPets();
 
+            if (persons == null)
+            {
+                return null;
+            }
+
             //LINQ Query to get Pets by Person's gender and Pet type
             return new PetsByPersonGenderCollection()
             {
                 PetsByPersonGender = persons.ToList()
-                                           .Where(person => person.pets != null)
-                                           .GroupBy(person => person.gender)
-                                           .Select(g => new PetsByPersonGender
-                                           {
-                                               Gender = g.Key,
-                                               Pets = g.SelectMany(person => person.pets.Where(pet => pet.type == petType))
-                                           }).ToList()
+                                            .Where(person => person.pets != null)
+                                            .GroupBy(person => person.gender)
+                                            .Select(g => new PetsByPersonGender
+                                            {
+                                                Gender = g.Key,
+                                                Pets = g.SelectMany(person => person.pets.Where(pet => pet.type == petType))
+                                            }).ToList()
             };
         }
     }

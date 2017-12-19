@@ -7,12 +7,7 @@ namespace AGL.Repository
 {
     public class PetsRepository : IPetsRepository
     {
-        public string Url { get; set; }
-
-        //public PetsRepository(string url)
-        //{
-        //    this.Url = url;
-        //}
+        public string Url { get; set; }        
 
         public async Task<Person[]> GetPersonAndPets()
         {
