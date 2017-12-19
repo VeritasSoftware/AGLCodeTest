@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGL.Repository", "AGL.Repository\AGL.Repository.csproj", "{AC9AE3D1-FAC5-4444-8542-D94942C7CC9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AGL.Repository", "AGL.Repository\AGL.Repository.csproj", "{AC9AE3D1-FAC5-4444-8542-D94942C7CC9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGL.Entities", "AGL.Entities\AGL.Entities.csproj", "{7EF5555A-3FEC-4A23-86B9-9C7982938157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AGL.Entities", "AGL.Entities\AGL.Entities.csproj", "{7EF5555A-3FEC-4A23-86B9-9C7982938157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGL.Application", "AGL.Application\AGL.Application.csproj", "{1B362E31-11E5-435A-98DB-9A5C871A6899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AGL.Application", "AGL.Application\AGL.Application.csproj", "{1B362E31-11E5-435A-98DB-9A5C871A6899}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGL", "AGL\AGL.csproj", "{43BF13D6-E0CC-4152-886D-3F5BB0DF6113}"
 EndProject
@@ -24,6 +24,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AE0CEC1-5F66-4716-93C6-9BDF78CB2EE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGL.UnitTests", "AGL.UnitTests\AGL.UnitTests.csproj", "{C3408588-2065-47C8-B20C-B30201E46602}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{934EE872-595B-4A27-83D5-CB3BD3DD10BC}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
