@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AGL.Application
 {
+    /// <summary>
+    /// Class PetsManager
+    /// </summary>
     public class PetsManager : IPetsManager
     {
         private readonly IPetsRepository _petsRepository;        

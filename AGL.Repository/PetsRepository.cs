@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace AGL.Repository
 {
+    /// <summary>
+    /// Class PetsRepository
+    /// </summary>
     public class PetsRepository : IPetsRepository
     {
         public string Url { get; set; }        
@@ -19,23 +22,22 @@ namespace AGL.Repository
             using (HttpClient client = new HttpClient())
             {
                 return await client.GetAsync(this.Url)
-                                         .ContinueWith(
-                                            requestTask =>
-                                            {
-                                                // Get HTTP response from completed task. 
-                                                HttpResponseMessage response = requestTask.Result;
+                                   .ContinueWith(task =>
+                                                 {
+                                                    // Get HTTP response from completed task. 
+                                                    HttpResponseMessage response = task.Result;
 
-                                                // Check that response was successful or throw exception 
-                                                response.EnsureSuccessStatusCode();
+                                                    // Check that response was successful or throw exception 
+                                                    response.EnsureSuccessStatusCode();
 
-                                                //Read the content
-                                                HttpContent content = response.Content;
+                                                    //Read the content
+                                                    HttpContent content = response.Content;
 
-                                                //Deserialize the data
-                                                var result = content.ReadAsStringAsync().Result?.DeserializeArray<Person>();
+                                                    //Deserialize the data
+                                                    var result = content.ReadAsStringAsync().Result?.DeserializeArray<Person>();
 
-                                                return result;
-                                            });
+                                                    return result;
+                                                 });
             }                
         }
     }
