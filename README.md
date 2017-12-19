@@ -1,5 +1,4 @@
 # AGL Code Test
-AGL Code Test
 
 Development Environment: **Visual Studio 2017**
 
