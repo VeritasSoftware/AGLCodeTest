@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AGL.Entities\AGL.Entities.csproj" />
+    <ProjectReference Include="..\AGL.Repository\AGL.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
