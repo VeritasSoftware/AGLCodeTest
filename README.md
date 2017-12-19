@@ -1,7 +1,7 @@
 # AGL Code Test
 AGL Code Test
 
-Development Environment: ** Visual Studio 2017 **
+Development Environment: **Visual Studio 2017**
 
 Development Language: ** C# **
 
